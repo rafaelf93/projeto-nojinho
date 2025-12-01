@@ -13,14 +13,12 @@
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node api/server.js",
-    "dev": "concurrently \"npm run start\" \"npm run server\""
-  },
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "server": "node api/server.js",
+  "dev": "concurrently \"npm run start\" \"npm run server\""
+},
   "eslintConfig": {
     "extends": [
       "react-app",
