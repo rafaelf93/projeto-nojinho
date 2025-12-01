@@ -14,4 +14,4 @@ server.put("/depositos", (req, res) => {
 
 server.use(router);
 
-module.exports = server; // importante para Vercel
+module.exports = server; // 🔹 ESSENCIAL para Vercel
