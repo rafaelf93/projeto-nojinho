@@ -1,0 +1,62 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e cores padrão */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fafafa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container principal */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center; /* garante centralização por padrão */
+}
+
+/* Títulos */
+h1, h2, h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Botões de usuário */
+.user-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Soma total em destaque */
+.soma-total {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #333;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .soma-total {
+    font-size: 1em;
+  }
+}
