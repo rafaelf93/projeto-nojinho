@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header";
 import UserButton from "./components/UserButton";
 import ProgressBar from "./components/ProgressBar";
@@ -11,35 +11,6 @@ function App() {
   const [status, setStatus] = useState(Array(total).fill("none"));
   const [usuarioAtivo, setUsuarioAtivo] = useState("Rafael");
 
-  // 🔹 Carregar status do backend ao iniciar
-  useEffect(() => {
-    fetch("/api/depositos")
-      .then(res => res.json())
-      .then(data => {
-        if (data.status && data.status.length === total) {
-          setStatus(data.status);
-        } else {
-          // inicializa no backend se estiver vazio
-          salvarDepositos(Array(total).fill("none"));
-        }
-      })
-      .catch(err => console.error("Erro ao carregar depósitos:", err));
-  }, []);
-
-  // 🔹 Salvar status no backend
-  const salvarDepositos = async (novoStatus) => {
-    try {
-      await fetch("/api/depositos", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: novoStatus })
-      });
-      setStatus(novoStatus);
-    } catch (err) {
-      console.error("Erro ao salvar depósitos:", err);
-    }
-  };
-
   // 🔹 Função para marcar depósitos
   const marcarDeposito = (index) => {
     const novoEstado = [...status];
@@ -48,7 +19,7 @@ function App() {
     } else {
       novoEstado[index] = novoEstado[index] === "red" ? "none" : "red";
     }
-    salvarDepositos(novoEstado);
+    setStatus(novoEstado);
   };
 
   // 🔹 Cálculos
